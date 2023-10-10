@@ -1,20 +1,212 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Search box v.2 (CSS Only)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0c0c0c;
+        }
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #5d5a5a;
+            color: #ffffff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1; /* Garante que o menu-bar fica acima do conteúdo */
+        }
+        .menu-bar img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        .search-icon {
+            margin-left: auto; /* Move o ícone para a direita */
+            padding-right: 20px; /* Espaçamento à direita para alinhar com a margem direita da .menu-bar */
+        }
+        .search-icon i {
+            font-size: 20px; /* Ajusta o tamanho do ícone */
+            color: #fff; /* Cor do ícone */
+            cursor: pointer; /* Altera o cursor para indicar que é clicável */
+        }
+        .menu {
+            width: 600px;
+            margin: 80px auto 20px auto;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #120000;
+            width: 200px;
+            height: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #191616;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .menu-item:hover {
+            background-color: #464242;
+        }
+        .menu-item img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+        }
+        .add-to-cart {
+            background-color: #2072c8;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Adiciona uma transição suave na cor de fundo */
+            border-radius: 10px; /* Arredonda os cantos do botão */
+        }
+        .add-to-cart:hover {
+            background-color: #598fc8; /* Cor de fundo ao passar o mouse */
+        }
+        .cart {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .menu-table {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .menu-cell {
+            width: 50%;
+        }
+      
+        .menu {
+            width: 600px;
+            margin: 160px auto 20px auto; /* Mais espaço entre o cabeçalho e o conteúdo */
+        }
+        .menu-item p {
+            color: #ffffff; /* Cor do texto */
+        }
+    </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<form class="search-box">
-  <input type="text" placeholder=" "/>
-  <button type="reset"></button>
-</form>
-<!-- partial -->
-  <script  src="./script.js"></script>
+    <div class="menu-bar">
+        <img src="logo.png" alt="Ícone de Menu">
+        <h1>Cardápio Online</h1>
+        <div class="search-icon">
+            <img src="caminho-para-a-sua-imagem.png" alt="Ícone de Pesquisa">
+        </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="menu-table">
+            <div class="menu-cell">
+                <div class="menu-item">
+                    <img src="xsalada.jpg" alt="X-Salada">
+                    <div>
+                        <h2>X Salada</h2>
+                        <p>Delicioso X Salada com queijo, presunto, batata palha, hambúrguer, milho, alface e tomate.</p>
+                        <p>Preço: R$ 14,00</p>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('X Salada', 14)">Adicionar ao Carrinho</button>
+                </div>
+                <!-- Adicione mais opções de comida aqui -->
+                <div class="menu-item">
+                    <img src="xegg.jpg" alt="X-Egg">
+                    <div>
+                        <h2>X Egg</h2>
+                        <p>Delicioso X Egg com queijo, presunto, ovo, batata palha, hambúrguer, milho, alface e tomate.</p>
+                        <p>Preço: R$ 17,00</p>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('X Egg', 17)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="menu-item">
+                    <img src="xburguer.jpg" alt="X-Burguer">
+                    <div>
+                        <h2>X Burguer</h2>
+                        <p>Delicioso X Burguer com queijo, presunto, batata palha, hambúrguer, alface e tomate.</p>
+                        <p>Preço: R$ 12,00</p>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('X Burguer', 12)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="menu-cell">
+                <div class="menu-item">
+                    <img src="xfrango.jpg" alt="X-Frango">
+                    <div>
+                        <h2>X Frango</h2>
+                        <p>Delicioso X Frango com queijo, frango grelhado, batata palha, alface e tomate.</p>
+                        <p>Preço: R$ 17,00</p>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('X Frango', 17)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="menu-item">
+                    <img src="xmignon.jpg" alt="X-Mignon">
+                    <div>
+                        <h2>X Mignon</h2>
+                        <p>Delicioso X Mignon com queijo, filé mignon, batata palha, alface e tomate.</p>
+                        <p>Preço: R$ 18,00</p>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('X Mignon', 18)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="menu-item">
+                    <img src="xtudo.jpg" alt="X-Tudo">
+                    <div>
+                        <h2>X Tudo</h2>
+                        <p>Delicioso X Tudo com queijo, presunto, batata palha, hambúrguer, milho, bacon, alface e tomate.</p>
+                        <p>Preço: R$ 20,00</p>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('X Tudo', 20)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart">
+        <h2>Carrinho de Compras</h2>
+        <ul id="cart-items">
+        </ul>
+        <p>Total: R$ <span id="cart-total">0.00</span></p>
+    </div>
 
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(item, price) {
+            cart.push({ item, price });
+            total += price;
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            const removedItem = cart.splice(index, 1)[0];
+            total -= removedItem.price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.item}: R$ ${item.price.toFixed(2)}`;
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remover';
+                removeButton.onclick = () => removeFromCart(index);
+                li.appendChild(removeButton);
+                cartItems.appendChild(li);
+            });
+            cartTotal.textContent = total.toFixed(2);
+        }
+    </script>
 </body>
 </html>
